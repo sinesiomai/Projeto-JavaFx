@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox prefHeight="335.0" prefWidth="415.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+   <children>
+      <Label text="Sobre" textFill="#31abd0">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+         <padding>
+            <Insets left="32.0" top="5.0" />
+         </padding>
+      </Label>
+      <Label text="Comedoria Boa Escolha" textFill="#0b7bd7">
+         <padding>
+            <Insets left="32.0" top="64.0" />
+         </padding>
+      </Label>
+   </children>
+</VBox>
