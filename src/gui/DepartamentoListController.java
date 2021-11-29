@@ -18,7 +18,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import service.DepartamentoService;
 
-public class DepartamentoListController {
+public class DepartamentoListController implements Initializable{
 
 	private DepartamentoService service;
 
@@ -48,7 +48,7 @@ public class DepartamentoListController {
 
 	public void updateTableView() {
 		if (service == null) {
-			throw new  IllegalStateException("Bagaça nula");
+			throw new  IllegalStateException("BagaÃ§a nula");
 		}
 		List<Departamento> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
@@ -56,8 +56,21 @@ public class DepartamentoListController {
 
 	}
 
-	private void createDialogForm(String nomeAbsoluto, Stage parentStage) {
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		initializeNodes();
+	}
+	
+	private void initializeNodes() {
+		tableColumId.setCellValueFactory(new PropertyValueFactory<>("id"));
+		tableColumName.setCellValueFactory(new PropertyValueFactory<>("nome"));
 
+		Stage stage = (Stage) Main.getMainScene().getWindow();
+		tableViewDepartamento.prefHeightProperty().bind(stage.heightProperty());
+	}
+	
+	private void createDialogForm(String nomeAbsoluto, Stage parentStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(nomeAbsoluto));
 
@@ -73,9 +86,7 @@ public class DepartamentoListController {
 			dialogStage.showAndWait();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
-
 	}
 }
